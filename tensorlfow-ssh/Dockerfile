@@ -1,4 +1,4 @@
-FROM       tensorflow/tensorflow:latest-gpu-py3
+FROM       tensorflow/tensorflow:latest-gpu
 MAINTAINER zlong "jidebingfeng@126.com"
 
 RUN apt-get update
