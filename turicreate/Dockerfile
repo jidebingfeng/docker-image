@@ -13,17 +13,17 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 
 
-echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
+RUN echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
 
-apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
-easy_install pip
-pip install virtualenv
+RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
+RUN easy_install pip
+RUN pip install virtualenv
 
-pip install --upgrade pip
-pip install turicreate
+RUN pip install --upgrade pip
+RUN pip install turicreate
 
-pip uninstall -y mxnet
-pip install mxnet-cu80==1.1.0
+RUN pip uninstall -y mxnet
+RUN pip install mxnet-cu80==1.1.0
 
 EXPOSE 22
 
