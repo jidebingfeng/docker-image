@@ -11,6 +11,20 @@ RUN echo 'root:root' |chpasswd
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
+
+
+echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
+
+apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
+easy_install pip
+pip install virtualenv
+
+pip install --upgrade pip
+pip install turicreate
+
+pip uninstall -y mxnet
+pip install mxnet-cu80==1.1.0
+
 EXPOSE 22
 
 CMD    ["/usr/sbin/sshd", "-D"]
