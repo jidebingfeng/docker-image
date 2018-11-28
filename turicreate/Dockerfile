@@ -15,8 +15,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 RUN echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
 
-RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
-RUN apt-get install python-pip
+RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools python-pip
 RUN pip install virtualenv
 
 RUN pip install --upgrade pip
