@@ -19,7 +19,8 @@ RUN echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
 
 
 #### turicreate
-RUN apt-get install -y python-pip
+RUN sudo apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
+RUN easy_install pip
 RUN pip install --upgrade pip
 RUN pip install turicreate
 
