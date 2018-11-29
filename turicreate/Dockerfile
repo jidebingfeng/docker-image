@@ -21,7 +21,7 @@ RUN echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
 #### turicreate
 RUN apt-get install -y python-pip
 RUN pip install --upgrade pip
-RUN pip install turicreate
+#RUN pip install turicreate
 
 RUN echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
 RUN pip uninstall -y mxnet
