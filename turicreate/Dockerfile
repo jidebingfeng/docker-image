@@ -3,7 +3,7 @@ MAINTAINER zlong "jidebingfeng@126.com"
 
 RUN apt-get update
 
-RUN apt-get install -y openssh-server
+RUN apt-get install -y openssh-server net-tools iputils-ping vim proxychains
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:root' |chpasswd
@@ -12,12 +12,7 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 
-
-
-RUN apt-get install net-tools
-RUN apt-get install vim
-
-RUN apt-get install proxychains
+# config proxychains
 RUN sed -ri 's/socks4/#socks4/$' /etc/proxychains.conf
 RUN echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
 
