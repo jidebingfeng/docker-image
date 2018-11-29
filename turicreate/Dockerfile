@@ -22,11 +22,11 @@ RUN echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
 RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
 RUN easy_install pip
 RUN pip install --upgrade pip
-RUN pip install turicreate
+#RUN pip install turicreate
 
 RUN echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
-RUN pip uninstall -y mxnet
-RUN pip install mxnet-cu80==1.1.0
+#RUN pip uninstall -y mxnet
+#RUN pip install mxnet-cu80==1.1.0
 
 EXPOSE 22
 
