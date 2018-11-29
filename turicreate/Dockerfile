@@ -13,7 +13,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 
 # config proxychains
-RUN sed -ri 's/socks4/#socks4/$' /etc/proxychains.conf
+RUN sed -ri 's/socks4/#socks4/g' /etc/proxychains.conf
 RUN echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
 
 
