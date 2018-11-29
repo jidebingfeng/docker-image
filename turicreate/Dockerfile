@@ -3,6 +3,7 @@ MAINTAINER zlong "jidebingfeng@126.com"
 
 RUN apt-get update
 
+#### tools
 RUN apt-get install -y openssh-server net-tools iputils-ping vim proxychains
 RUN mkdir /var/run/sshd
 
@@ -17,11 +18,14 @@ RUN sed -ri 's/socks4/#socks4/g' /etc/proxychains.conf
 RUN echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
 
 
+#### turicreate
+RUN apt-get install -y python-pip
+RUN pip install --upgrade pip
+RUN pip install -U turicreate
 
-# RUN echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
-# RUN pip install --upgrade pip
-# RUN pip uninstall -y mxnet
-# RUN pip install mxnet-cu80==1.1.0
+RUN echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
+RUN pip uninstall -y mxnet
+RUN pip install mxnet-cu80==1.1.0
 
 EXPOSE 22
 
