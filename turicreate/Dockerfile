@@ -5,7 +5,7 @@ RUN apt-get update
 
 RUN apt-get install net-tools
 RUN apt-get install iputils-ping
-RUN apt-get apt-get install vim
+RUN apt-get install vim
 
 RUN apt-get install proxychains
 RUN sed -ri 's/socks4/#socks4/$' /etc/proxychains.conf
