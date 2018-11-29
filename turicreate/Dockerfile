@@ -3,6 +3,17 @@ MAINTAINER zlong "jidebingfeng@126.com"
 
 RUN apt-get update
 
+RUN apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+
+RUN echo 'root:root' |chpasswd
+
+RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
+
+
+
+
 RUN apt-get install net-tools
 RUN apt-get install iputils-ping
 RUN apt-get install vim
@@ -11,13 +22,7 @@ RUN apt-get install proxychains
 RUN sed -ri 's/socks4/#socks4/$' /etc/proxychains.conf
 RUN echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
 
-RUN apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
 
-RUN echo 'root:root' |chpasswd
-
-RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 # RUN echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH >> ~/.bashrc
 # RUN pip install --upgrade pip
