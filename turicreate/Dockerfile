@@ -8,8 +8,8 @@ RUN apt install iputils-ping
 RUN apt-get apt-get install vim
 
 RUN apt-get install proxychains
-sed -ri 's/socks4/#socks4/$' /etc/proxychains.conf
-echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
+RUN sed -ri 's/socks4/#socks4/$' /etc/proxychains.conf
+RUN echo socks5  127.0.0.1 1080 >> /etc/proxychains.conf
 
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
