@@ -15,7 +15,6 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 
 RUN apt-get install net-tools
-RUN apt-get install iputils-ping
 RUN apt-get install vim
 
 RUN apt-get install proxychains
