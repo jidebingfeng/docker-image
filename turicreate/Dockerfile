@@ -4,7 +4,7 @@ MAINTAINER zlong "jidebingfeng@126.com"
 RUN apt-get update
 
 #### tools
-RUN apt-get install -y openssh-server net-tools iputils-ping vim proxychains
+RUN apt-get install -y openssh-server net-tools iputils-ping curl vim proxychains
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:root' |chpasswd
