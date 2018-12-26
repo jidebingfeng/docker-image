@@ -1,9 +1,9 @@
 FROM ubuntu:16.04
 MAINTAINER zlong "jidebingfeng@126.com"
-RUN echo $http_proxy
-RUN echo $https_proxy
+RUN echo $http_proxy && \
+    echo $https_proxy && \
 
-RUN apt-get -y update && \
+    apt-get -y update && \
 
 #### tools
     apt-get install -y openssh-server net-tools iputils-ping curl wget vim proxychains sudo && \
