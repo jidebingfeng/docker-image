@@ -1,4 +1,4 @@
-FROM       valian/docker-python-opencv-ffmpeg:py3-cuda
+FROM       valian/docker-python-opencv-ffmpeg:cuda-py3
 MAINTAINER zlong "jidebingfeng@126.com"
 
 
