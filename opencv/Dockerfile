@@ -18,9 +18,9 @@ RUN apt-get update && \
         libpng-dev \
         libtiff-dev \
         libavformat-dev \
-        libpq-dev \
-        python3 \
-        python3-pip
+        libpq-dev 
+
+RUN apt-get install -y python3 python3-pip
 
 RUN pip install numpy
 
